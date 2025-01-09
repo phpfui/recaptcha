@@ -13,7 +13,7 @@ about: Report an issue with the PHP client library
  * OS name and version:
  * PHP version:
  * Web server name and version:
- * `google/recaptcha` version:
+ * `phpfui/recaptcha` version:
  * Browser name and version:
 
 **Reproducing the issue**
@@ -21,8 +21,8 @@ about: Report an issue with the PHP client library
 
   * URL (optional): <!-- if your integration is already deployed and the issue is visible -->
   * Code (optional): <!-- share a link to the code you're using or an example in a Gist -->
-  
+
   ***User steps***
   <!-- Detail the necessary steps to reproduce the issue. Include the output of any error messages. -->
-  
+
     1. Visit page...
