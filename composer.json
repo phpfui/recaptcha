@@ -20,22 +20,22 @@
     "autoload": {
         "psr-4": {"ReCaptcha\\": "src/ReCaptcha"}
     },
-  	"autoload-dev": {
-	  		"psr-4": {"ReCaptcha\\": "tests/ReCaptcha/"}
-  	},
+    "autoload-dev": {
+         "psr-4": {"ReCaptcha\\": "tests/ReCaptcha/"}
+    },
     "scripts": {
         "lint": [
             "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
-					  "vendor/bin/php-cs-fixer -vvv fix --using-cache=no --dry-run ."
+            "vendor/bin/php-cs-fixer -vvv fix --using-cache=no --dry-run ."
         ],
         "lint-fix": [
             "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
-   					"vendor/bin/php-cs-fixer -vvv fix --using-cache=no ."
+            "vendor/bin/php-cs-fixer -vvv fix --using-cache=no ."
         ],
         "test": [
-						"@putenv XDEBUG_MODE=coverage",
-					  "vendor/bin/phpunit --display-phpunit-deprecations"
-				],
+            "@putenv XDEBUG_MODE=coverage",
+            "vendor/bin/phpunit --display-phpunit-deprecations"
+        ],
         "serve-examples": "@php -S localhost:8080 -t examples"
     },
     "config": {
