@@ -1,7 +1,8 @@
 <?php
 
-/**
- * This is a PHP library that handles calling reCAPTCHA.
+/* An autoloader for ReCaptcha\Foo classes. This should be required()
+ * by the user before attempting to instantiate any of the ReCaptcha
+ * classes.
  *
  * BSD 3-Clause License
  * @copyright (c) 2019, Google Inc.
@@ -33,36 +34,36 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace ReCaptcha;
-
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\DataProvider;
-
-class RequestParametersTest extends Testcase
-{
-    public static function provideValidData()
-    {
-        return array(
-            array('SECRET', 'RESPONSE', 'REMOTEIP', 'VERSION',
-                array('secret' => 'SECRET', 'response' => 'RESPONSE', 'remoteip' => 'REMOTEIP', 'version' => 'VERSION'),
-                'secret=SECRET&response=RESPONSE&remoteip=REMOTEIP&version=VERSION'),
-            array('SECRET', 'RESPONSE', null, null,
-                array('secret' => 'SECRET', 'response' => 'RESPONSE'),
-                'secret=SECRET&response=RESPONSE'),
-        );
+spl_autoload_register(function ($class) {
+    if (substr($class, 0, 10) !== 'ReCaptcha\\') {
+        /* If the class does not lie under the "ReCaptcha" namespace,
+         * then we can exit immediately.
+         */
+        return;
     }
 
-    #[DataProvider('provideValidData')]
-    public function testToArray($secret, $response, $remoteIp, $version, $expectedArray, $expectedQuery)
-    {
-        $params = new RequestParameters($secret, $response, $remoteIp, $version);
-        $this->assertEquals($params->toArray(), $expectedArray);
+    /* All of the classes have names like "ReCaptcha\Foo", so we need
+     * to replace the backslashes with frontslashes if we want the
+     * name to map directly to a location in the filesystem.
+     */
+    $class = str_replace('\\', '/', $class);
+
+    /* First, check under the current directory. It is important that
+     * we look here first, so that we don't waste time searching for
+     * test classes in the common case.
+     */
+    $path = dirname(__FILE__).'/'.$class.'.php';
+    if (is_readable($path)) {
+        require_once $path;
+
+        return;
     }
 
-    #[DataProvider('provideValidData')]
-    public function testToQueryString($secret, $response, $remoteIp, $version, $expectedArray, $expectedQuery)
-    {
-        $params = new RequestParameters($secret, $response, $remoteIp, $version);
-        $this->assertEquals($params->toQueryString(), $expectedQuery);
+    /* If we didn't find what we're looking for already, maybe it's
+     * a test class?
+     */
+    $path = dirname(__FILE__).'/../tests/'.$class.'.php';
+    if (is_readable($path)) {
+        require_once $path;
     }
-}
+});

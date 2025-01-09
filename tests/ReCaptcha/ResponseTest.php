@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is a PHP library that handles calling reCAPTCHA.
  *
@@ -35,12 +36,11 @@
 namespace ReCaptcha;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class ResponseTest extends TestCase
 {
-    /**
-     * @dataProvider provideJson
-     */
+    #[DataProvider('provideJson')]
     public function testFromJson($json, $success, $errorCodes, $hostname, $challengeTs, $apkPackageName, $score, $action)
     {
         $response = Response::fromJson($json);
