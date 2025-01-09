@@ -1,7 +1,6 @@
 # Google's reCAPTCHA PHP client library
 
 [![Build Status](https://github.com/phpfui/recaptcha/actions/workflows/tests.yml/badge.svg)](https://github.com/phpfui/recaptcha/actions?query=workflow%3Atests)
-[![Coverage Status](https://coveralls.io/repos/github/google/recaptcha/badge.svg)](https://coveralls.io/github/phpfui/recaptcha)
 [![Latest Stable Version](https://img.shields.io/packagist/v/phpfui/recaptcha.svg)](https://packagist.org/packages/phpfui/recaptcha)
 ![](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
 

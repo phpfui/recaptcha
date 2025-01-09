@@ -33,7 +33,6 @@
             "vendor/bin/php-cs-fixer -vvv fix --using-cache=no ."
         ],
         "test": [
-            "@putenv XDEBUG_MODE=coverage",
             "vendor/bin/phpunit --display-phpunit-deprecations"
         ],
         "serve-examples": "@php -S localhost:8080 -t examples"

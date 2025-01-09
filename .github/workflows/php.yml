@@ -39,6 +39,3 @@ jobs:
         run: |
           vendor/bin/phpunit
 
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v2.3.4
-
