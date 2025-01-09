@@ -112,18 +112,6 @@ class ReCaptcha
      */
     public const E_CHALLENGE_TIMEOUT = 'challenge-timeout';
 
-    /**
-     * Shared secret for the site.
-     * @var string
-     */
-    private string $secret;
-
-    /**
-     * Method used to communicate with service. Defaults to POST request.
-     * @var RequestMethod
-     */
-    private ?RequestMethod $requestMethod;
-
     private string $hostname;
     private string $apkPackageName;
     private string $action;
@@ -137,18 +125,15 @@ class ReCaptcha
      * @param ?RequestMethod $requestMethod method used to send the request. Defaults to POST.
      * @throws \RuntimeException if $secret is invalid
      */
-    public function __construct(string $secret, ?RequestMethod $requestMethod = null)
+    public function __construct(private string $secret, private ?RequestMethod $requestMethod = null)
     {
         if (empty($secret)) {
             throw new \RuntimeException('No secret provided');
         }
 
-        if (!is_string($secret)) {
-            throw new \RuntimeException('The provided secret must be a string');
+        if (is_null($requestMethod)) {
+            $this->requestMethod = new RequestMethod\Post();
         }
-
-        $this->secret = $secret;
-        $this->requestMethod = (is_null($requestMethod)) ? new RequestMethod\Post() : $requestMethod;
     }
 
     /**

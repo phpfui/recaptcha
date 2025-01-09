@@ -41,6 +41,9 @@ namespace ReCaptcha\RequestMethod;
  */
 class Socket
 {
+    /**
+     * @var resource|false
+     */
     private $handle = null;
 
     /**

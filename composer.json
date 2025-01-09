@@ -15,7 +15,8 @@
     "require-dev": {
         "phpunit/phpunit": "^11",
         "friendsofphp/php-cs-fixer": "^3.14",
-        "php-coveralls/php-coveralls": "^2.5"
+        "php-coveralls/php-coveralls": "^2.5",
+        "phpstan/phpstan": "^2.1"
     },
     "autoload": {
         "psr-4": {"ReCaptcha\\": "src/ReCaptcha"}
@@ -33,6 +34,7 @@
             "vendor/bin/php-cs-fixer -vvv fix --using-cache=no ."
         ],
         "test": [
+            "vendor/bin/phpstan",
             "vendor/bin/phpunit --display-phpunit-deprecations"
         ],
         "serve-examples": "@php -S localhost:8080 -t examples"
