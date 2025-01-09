@@ -1,8 +1,8 @@
 # Google's reCAPTCHA PHP client library
 
-[![Build Status](https://github.com/phpfui/recaptcha/actions/workflows/tests.yml/badge.svg)](https://github.com/phpfui/recaptcha/actions?query=workflow%3Atests)
+[![Build Status](https://github.com/phpfui/recaptcha/actions/workflows/tests.yml/badge.svg)](https://github.com/phpfui/recaptcha/actions?query=workflow%3Aphp)
 [![Latest Stable Version](https://img.shields.io/packagist/v/phpfui/recaptcha.svg)](https://packagist.org/packages/phpfui/recaptcha)
-![](https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat)
+![](https://img.shields.io/badge/PHPStan-level%205-brightgreen.svg?style=flat)
 
 reCAPTCHA is a free CAPTCHA service that protects websites from spam and abuse. This is a PHP library that wraps up the server-side verification step required to process responses from the reCAPTCHA service. This client supports both V2 and V3.
 
