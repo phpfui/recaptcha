@@ -57,7 +57,7 @@ class CurlPostTest extends TestCase
             ->getMock();
         $curl->expects($this->once())
                 ->method('init')
-                ->willReturn(new \stdClass());
+                ->willReturn(curl_init());
         $curl->expects($this->once())
                 ->method('setoptArray')
                 ->willReturn(true);
@@ -82,7 +82,7 @@ class CurlPostTest extends TestCase
         $curl->expects($this->once())
                 ->method('init')
                 ->with($url)
-                ->willReturn(new \stdClass());
+                ->willReturn(curl_init());
         $curl->expects($this->once())
                 ->method('setoptArray')
                 ->willReturn(true);
@@ -104,7 +104,7 @@ class CurlPostTest extends TestCase
             ->getMock();
         $curl->expects($this->once())
                 ->method('init')
-                ->willReturn(new \stdClass());
+                ->willReturn(curl_init());
         $curl->expects($this->once())
                 ->method('setoptArray')
                 ->willReturn(true);
