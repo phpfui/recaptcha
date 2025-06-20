@@ -38,7 +38,7 @@ namespace ReCaptcha;
 /**
  * The response returned from the service.
  */
-class Response
+class Response implements \Psr\Captcha\CaptchaResponseInterface
 {
     /**
      * Build the response from the expected JSON returned by the service.

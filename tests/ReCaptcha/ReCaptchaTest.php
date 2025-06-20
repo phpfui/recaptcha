@@ -43,7 +43,7 @@ class ReCaptchaTest extends TestCase
     #[DataProvider('invalidSecretProvider')]
     public function testExceptionThrownOnInvalidSecret($invalid)
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(\Psr\Captcha\CaptchaException::class);
         $rc = new ReCaptcha($invalid);
     }
 
