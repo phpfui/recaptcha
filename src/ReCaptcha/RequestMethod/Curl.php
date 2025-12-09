@@ -74,6 +74,6 @@ class Curl
      */
     public function close($ch): void
     {
-        curl_close($ch);
+    //  curl_close($ch); // curl_close is a noop in PHP 8.0+
     }
 }
